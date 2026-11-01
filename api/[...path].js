@@ -1,5 +1,7 @@
-export const config = { runtime: 'nodejs' };
-
+export const config = {
+  runtime: "nodejs",
+  dynamic: "force-dynamic"
+};
 const UPSTREAM = 'https://api.instabox.sh/v1';
 
 export default async function handler(req, res) {
