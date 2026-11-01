@@ -3,6 +3,7 @@ export const config = {
   dynamic: "force-dynamic"
 };
 const UPSTREAM = 'https://api.instabox.sh/v1';
+const { v4: uuidv4 } = require('uuid');
 
 export default async function handler(req, res) {
   try {
@@ -27,9 +28,19 @@ export default async function handler(req, res) {
     const qstr = qs.toString();
     const url = `${UPSTREAM}/${target}${qstr ? `?${qstr}` : ''}`;
 
+    // 构造请求头
+    const headers = {
+      'X-API-Key': apiKey,
+      Accept: 'application/json'
+    };
+    // 写操作（非GET）自动生成幂等key
+    if (!['GET', 'HEAD'].includes(req.method)) {
+      headers['Idempotency-Key'] = uuidv4();
+    }
+
     const init = {
       method: req.method,
-      headers: { 'X-API-Key': apiKey, Accept: 'application/json' },
+      headers
     };
     if (!['GET', 'HEAD'].includes(req.method) && req.body !== undefined) {
       init.headers['Content-Type'] = 'application/json';
