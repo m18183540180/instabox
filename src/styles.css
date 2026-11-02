@@ -194,6 +194,54 @@ body {
 .skeleton.tall { height: 200px; }
 @keyframes shimmer { to { background-position: -200px 0; } }
 
+.net-body {
+  padding: 12px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.pad-note { padding: 2px 0; }
+
+.ssh-box {
+  background: var(--gray-bg);
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ssh-cmd { justify-content: space-between; gap: 8px; }
+.ssh-cmd code { flex: 1; min-width: 0; white-space: normal; word-break: break-all; }
+.ssh-cmd .btn { flex-shrink: 0; }
+
+.port-row {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.port-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.port-name { font-weight: 600; font-size: 14px; }
+.port-url { min-width: 0; }
+.port-url code { white-space: normal; word-break: break-all; }
+.port-link { color: var(--primary); text-decoration: none; flex: 1; min-width: 0; }
+.port-link:hover { text-decoration: underline; }
+
+.port-form { display: flex; flex-wrap: wrap; gap: 10px; }
+.field {
+  flex: 1 1 140px;
+  min-width: 130px;
+  min-height: 44px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  font-size: 14px;
+  background: #fff;
+}
+.port-form .btn { flex: 1 1 100%; }
+
 @media (max-width: 480px) {
   .main { padding: 12px; }
   .grid { grid-template-columns: 1fr; }
