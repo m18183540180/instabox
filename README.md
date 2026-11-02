@@ -11,7 +11,7 @@ vercel-instabox/
 │   └── [...path].js   # Serverless 代理函数（Node 运行时），catch-all 转发到 api.instabox.sh/v1
 ├── src/
 │   ├── main.jsx       # React 入口
-│   ├── app.jsx        # 列表页 + 详情页（生命周期 / 命令 / 指标 / 轮询）
+│   ├── app.jsx        # 列表页 + 详情页（生命周期 / 命令 / 指标 / SSH / HTTPS 端口 / 轮询）
 │   ├── api.js         # 前端请求封装
 │   └── styles.css     # 响应式样式（移动端单列）
 ├── index.html
@@ -26,6 +26,8 @@ vercel-instabox/
 - 生命周期：启动 / 停止 / 暂停 / 恢复 / 删除（删除带确认），操作后轮询状态
 - 执行命令：返回 stdout / stderr / exitCode
 - 资源指标：CPU、内存使用率
+- SSH 连接：查看主机 / 端口 / 用户名，一键生成免密登录命令（含 mosh）与主机指纹，可随时撤销
+- 网络访问：把机器内的 HTTP 端口发布为公网 HTTPS 网址，支持公开（任何人可访问）与私有（带令牌），可一键关闭
 
 ## API Key 的两种模式
 
