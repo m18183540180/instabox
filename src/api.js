@@ -32,3 +32,11 @@ export const lifecycle = (k, id, action) => request('POST', `/machines/${id}/${a
 export const execCommand = (k, id, cmd) => request('POST', `/machines/${id}/exec`, { cmd }, k);
 export const getOperation = (k, opId) => request('GET', `/operations/${opId}`, undefined, k);
 export const getMetrics = (k, id) => request('GET', `/machines/${id}/metrics`, undefined, k);
+
+export const listPorts = (k, id) => request('GET', `/machines/${id}/ports`, undefined, k);
+export const publishPort = (k, id, body) => request('POST', `/machines/${id}/ports`, body, k);
+export const removePort = (k, id, port) => request('DELETE', `/machines/${id}/ports/${port}`, undefined, k);
+
+export const getConnectionInfo = (k, id) => request('GET', `/machines/${id}/connection-info`, undefined, k);
+export const createSshToken = (k, id) => request('POST', `/machines/${id}/ssh-tokens`, {}, k);
+export const revokeSshTokens = (k, id) => request('DELETE', `/machines/${id}/ssh-tokens`, undefined, k);
